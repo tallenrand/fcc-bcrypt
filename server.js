@@ -13,7 +13,11 @@ app.get('/', (req, res) => {
     res.send("Hello World!");
 });
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
-
+const hash = bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+  bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+    console.log(res)
+  });
+});
 
 
 //END_ASYNC
